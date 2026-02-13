@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotImageDemo", "DotImageDemo\dotImageDemo.csproj", "{3D298E69-7D7C-41E2-BC01-02184901161E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinDemoHelperMethods", "WinDemoHelperMethods\WinDemoHelperMethods.csproj", "{5ABEB07A-C0B6-4B17-89A7-23761594015A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3D298E69-7D7C-41E2-BC01-02184901161E}.Debug|x64.ActiveCfg = Debug|x64
+		{3D298E69-7D7C-41E2-BC01-02184901161E}.Debug|x64.Build.0 = Debug|x64
+		{3D298E69-7D7C-41E2-BC01-02184901161E}.Release|x64.ActiveCfg = Release|x64
+		{3D298E69-7D7C-41E2-BC01-02184901161E}.Release|x64.Build.0 = Release|x64
+		{5ABEB07A-C0B6-4B17-89A7-23761594015A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{5ABEB07A-C0B6-4B17-89A7-23761594015A}.Debug|x64.Build.0 = Debug|Any CPU
+		{5ABEB07A-C0B6-4B17-89A7-23761594015A}.Release|x64.ActiveCfg = Release|Any CPU
+		{5ABEB07A-C0B6-4B17-89A7-23761594015A}.Release|x64.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01FF12E1-6CE8-4A6C-A511-C3A9C7C232A9}
+	EndGlobalSection
+EndGlobal
