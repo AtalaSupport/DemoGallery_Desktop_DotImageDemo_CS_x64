@@ -73,6 +73,7 @@ namespace dotImageDemo
 		private System.Windows.Forms.ToolBarButton tbPan;
 		private System.Windows.Forms.StatusBarPanel statusBarProgress;
 		private System.Windows.Forms.ProgressBar progressBar1;
+		private System.Windows.Forms.StatusBarPanel statusBarColorReadout;
 		private System.Windows.Forms.ToolBarButton tbOpen;
 		private System.Windows.Forms.ToolBarButton tbSave;
 		private System.Windows.Forms.ToolBarButton tbSep;
@@ -399,6 +400,7 @@ namespace dotImageDemo
             this.statusBarLoadTime = new System.Windows.Forms.StatusBarPanel();
             this.statusBarMessage = new System.Windows.Forms.StatusBarPanel();
             this.statusBarProgress = new System.Windows.Forms.StatusBarPanel();
+			this.statusBarColorReadout = new System.Windows.Forms.StatusBarPanel();
             this.toolBar1 = new System.Windows.Forms.ToolBar();
             this.tbOpen = new System.Windows.Forms.ToolBarButton();
             this.tbSave = new System.Windows.Forms.ToolBarButton();
@@ -663,6 +665,7 @@ namespace dotImageDemo
             ((System.ComponentModel.ISupportInitialize)(this.statusBarLoadTime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statusBarProgress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.statusBarColorReadout)).BeginInit();
             this.SuspendLayout();
             // 
             // statusInfo
@@ -673,7 +676,8 @@ namespace dotImageDemo
             this.statusBarPosition,
             this.statusBarLoadTime,
             this.statusBarMessage,
-            this.statusBarProgress});
+            this.statusBarProgress,
+			this.statusBarColorReadout});
             this.statusInfo.ShowPanels = true;
             this.statusInfo.Size = new System.Drawing.Size(552, 22);
             this.statusInfo.TabIndex = 1;
@@ -698,6 +702,13 @@ namespace dotImageDemo
             this.statusBarMessage.Name = "statusBarMessage";
             this.statusBarMessage.Text = "Atalasoft dotImage";
             this.statusBarMessage.Width = 161;
+            // 
+            // statusBarColorReadout
+            // 
+            this.statusBarColorReadout.AutoSize = System.Windows.Forms.StatusBarPanelAutoSize.Spring;
+            this.statusBarColorReadout.Name = "statusBarcolorReadout";
+            this.statusBarColorReadout.Text = "Color: -";
+            this.statusBarColorReadout.Width = 161;
             // 
             // statusBarProgress
             // 
@@ -2681,6 +2692,8 @@ namespace dotImageDemo
 
 		private void Viewer_MouseMovePixel(object sender, MouseEventArgs e)
 		{
+
+
 			if (Viewer.Selection.Visible) 
 			{
 				Rectangle rc = Viewer.Selection.Bounds;
@@ -2691,7 +2704,18 @@ namespace dotImageDemo
 				string pos = "Position:  " + e.X.ToString() + " x " + e.Y.ToString();
 				statusBarPosition.Text = pos;
 			}
-			statusBarPosition.ToolTipText = statusBarPosition.Text;
+
+            string color = "Color: -";
+            if (Viewer.Image != null)
+            {
+                Color eyeDrop = Viewer.Image.GetPixelColor(e.X, e.Y);
+
+				color = eyeDrop.Name + ": R:" + eyeDrop.R.ToString() + " G:" + eyeDrop.G.ToString() + " B:" + eyeDrop.B.ToString();
+            }
+			statusBarColorReadout.Text = color;
+			statusBarColorReadout.ToolTipText = color;
+
+            statusBarPosition.ToolTipText = statusBarPosition.Text;
 
 			if ((this.drawMode == DrawMenuMode.Freehand) && (e.Button == MouseButtons.Left))
 			{
